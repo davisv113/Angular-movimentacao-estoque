@@ -1,59 +1,34 @@
-# MovimentacaoEstoque
+# Movimentação de Estoque — Angular 21 (Signals + Reactive Forms + Tailwind)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+Um projeto de exemplo / desafio que demonstra boas práticas modernas do Angular 21: componentes standalone, signals (reactive primitives), reactive forms fortes em TypeScript e UI estilizada com Tailwind CSS.
 
-## Development server
+Principais focos
+- Angular 21 (standalone components, signals, computed/effect)
+- Reactive Forms com validação e UX cuidadosa
+- UI responsiva construída com Tailwind CSS (migração a partir de Angular Material)
+- Componentização: Movimentação (lançamentos/estornos) e Ranking (vendas/comissões)
 
-To start a local development server, run:
+Arquitetura & componentes
+- src/app/app.ts — root standalone component (controls tabs e exibe os componentes filhos)
+- src/app/data.ts — modelos (Produto, Movimentacao, VendaRaw, etc.) e dados mock
+- src/app/components/movimentacao — formulário de lançamentos, histórico e lógica de estorno
+- src/app/components/ranking — ranking de vendedores, regras de comissionamento (computed signals)
 
-```bash
-ng serve
-```
+Principais funcionalidades
+- Lançamento de entrada/saída com unidade/fator e validação
+- Histórico de movimentações com paginação e filtro
+- Estorno seguro (um lançamento não pode ser estornado mais de uma vez)
+- Ranking de vendedores com cálculo de comissões (regra de exemplo)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Setup — executando localmente
+1. Instale dependências
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Rodar em desenvolvimento (hot-reload)
 
 ```bash
-ng test
+npm run start
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
